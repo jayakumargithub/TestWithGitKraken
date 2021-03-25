@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global"  >
+
+
+<aura:handler  event="c:SelectInstituteEvent" action="{!c.selectInstituteEventHandler}" />
+<aura:attribute name="selectedInstitute" type="String" default="NONE" />
+
+<div class="slds-card">
+  Selected Institute (APPLICATION Event) :  {!v.selectedInstitute}
+</div>
+</aura:component>

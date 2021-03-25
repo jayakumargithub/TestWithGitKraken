@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:registerEvent name="SelectInstituteEvent" type="c:SelectInstituteEvent"  />
+
+<aura:attribute type="string[]" name="institutes" default="['Nijalingappa Collage', 'Viajaya Collage', 'Joseph Collage']"/> 
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="5">
+            <lightning:select aura:id="InstituteList"  name="institute" label="Choose Institute" variant="label-hidden">
+                <option value="">All</option>
+                <aura:iteration items="{!v.institutes}" var="inst">
+                    <option value="{!inst}" text="{!inst}"/>
+                </aura:iteration> 
+            </lightning:select>  
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1">
+                <lightning:button label="Search" 
+                                  variant="brand"
+                                  class="slds-button _slds-button-top"
+                                  onclick="{!c.doSubmit}"
+                                  />
+        </lightning:layoutItem> 
+    </lightning:layout> 
+
+</aura:component>

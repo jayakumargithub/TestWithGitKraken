@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global"  >
+
+<aura:attribute name="car" type="Car__c" access="public" />
+ 
+    <div >
+ <lightning:layout title="Matched Cars" >
+     <lightning:button variant="neutral" >
+         <div class="slds-p-top_x-small slds-is-relative">
+             <img src="{!v.car.Picture__c}" />
+             <div class="slds-is-relative slds-float_left" style="background-color:lightblue;color:#000;opacity:0.5;width:100%;padding:0px;">{!v.car.Contact__r.Name}</div>
+         </div>
+     </lightning:button> 
+ </lightning:layout>
+</div>
+ 
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component >
+	<div class="slds-card slds-grid">
+        Hello World <br/>
+         <lightning:input
+            aura:id="enter-search"
+            name="enter-search"
+            label="Enter Keyword"
+            type="search"
+           
+        /> 
+    
+    </div>
+</aura:component>

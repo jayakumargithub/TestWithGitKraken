@@ -1,0 +1,24 @@
+<aura:component controller="CarTypeSearch"  extends="c:Base"  implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global"  > 
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:attribute name="carCategories" type="Car_Type__c" default="" />
+<!-- <aura:handler name="carCategoryIdPassEvt" event="c:CarCategoryIdPassEvent" action="{!c.doFormSubmit}" /> -->
+<aura:registerEvent name="carCategoryIdPassEvt" type="c:CarCategoryIdPassEvent" />
+<!-- <aura:handler name="carCategoryIdPassEvt" event="c:CarCategoryIdPassEvent" action="{!c.doFormSubmit}" /> -->
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="5">
+            <lightning:select aura:id="carCategList"  name="carCategory" label="Choose Category" variant="label-hidden">
+                <option value="">All Types</option>
+                <aura:iteration items="{!v.carCategories}" var="carItem">
+                    <option value="{!carItem.Id}" text="{!carItem.Name}"/>
+                </aura:iteration> 
+            </lightning:select>  
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1">
+                <lightning:button label="Search" 
+                                  variant="brand"
+                                  class="slds-button _slds-button-top"
+                                  onclick="{!c.doSubmit}"
+                                  />
+        </lightning:layoutItem> 
+    </lightning:layout> 
+</aura:component>

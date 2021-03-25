@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:method name="GetMessageFromChildMethod" action="{!c.getMessage}"
+                 access="public">
+        <aura:attribute name="Name" type="String" default="Amit"/>
+    </aura:method>
+</aura:component>

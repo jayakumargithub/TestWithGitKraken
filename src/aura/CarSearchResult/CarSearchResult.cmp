@@ -1,0 +1,32 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" extends="c:Base"  controller="CarSearchController">
+
+
+<aura:attribute type="Car__c[]" name="cars" access="public"/>
+<aura:attribute type="String" name="carCategoryId" access="private" />
+<aura:attribute type="Boolean" name="carFound" default="false"/> 
+
+<aura:handler  event="c:CarCategoryIdPassEvent" action="{!c.doFormSubmit}" />
+
+<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+<!-- <aura:handler name="doSearch" action="{!c.doSearch}" access="public" /> -->
+ 
+<lightning:layout multipleRows="true" horizontalAlign="center">
+    <aura:if isTrue="{!v.carFound}">
+        <aura:iteration items="{!v.cars}" var="car">
+        <lightning:layoutItem padding="around-small" size="12"
+        smallDeviceSize="6"
+        mediumDeviceSize="4"
+        largeDeviceSize="3">
+    <c:CarTile car="{#car}" />
+</lightning:layoutItem>
+</aura:iteration>
+  
+    <aura:set attribute="else">
+        <div class="slds-align_absolute-center">
+            No Cars Found.
+        </div>
+    </aura:set>
+</aura:if>
+
+</lightning:layout> 
+</aura:component>
